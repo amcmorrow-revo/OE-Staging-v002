@@ -1,113 +1,193 @@
-{% assign col_count_class = '-col-count--' | append: section.settings.items_per_view %}
+<link rel="stylesheet" href="{{ 'testimonial-card.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'testimonial-card.css' | asset_url | stylesheet_tag }}</noscript>
 
-{%- render 'section-bg-init',
-  section_id: section.id,
-  alt_bg: section.settings.use_section_bg_color
--%}
+{% if section.settings.color_scheme == 'default' %}
+  {%- assign card_bordered = true -%}
+{% endif %}
+
+
+
+{%- capture Content -%}
+  <div class="#grid @gap:{{ section.settings.gutter }} %mobile:overlap @container @columns:{{ section.settings.columns }}">
+      {% for block in section.blocks %}
+        
+        <div class="#column reveal-animate" style="--reveal-index: {{ forloop.index }}" {{ block.shopify_attributes }}>
+          {% render 'testimonial-card',
+            author_image: block.settings.author_image,
+            text: block.settings.text,
+            author_name: block.settings.author_name,
+            author_subheading: block.settings.author_subheading,
+            product: block.settings.product,
+            show_stars: section.settings.show_stars,
+            bordered: card_bordered
+          %}
+        </div>
+    {% endfor %}
+  </div>
+{%- endcapture -%}
+
+{% if section.settings.section_button != blank and section.settings.section_button_link != blank %}
+  {%- assign section_button = section.settings.section_button -%}
+{% endif %}
+
+
+{% render 'section-body',
+  content: Content,
+  spaced: true,
+  container: false,
+  title: section.settings.title,
+  color_scheme: section.settings.color_scheme,
+  subtitle: section.settings.subtitle,
+  button: section_button,
+  button_link: section.settings.section_button_link
+%}
 
 {% schema %}
-  {
-    "name": "Testimonials",
-    "class": "index-section",
-    "max_blocks": 10,
-    "settings": [
+{
+  "name":"Testimonials",
+  "tag":"section",
+  "max_blocks":12,
+  "settings":[
       {
-        "type": "text",
-        "id": "title",
-        "label": "Heading",
-        "default": "Testimonials"
+         "type": "text",
+         "id": "title",
+         "default": "Testimonials",
+         "label": "Heading"
       },
       {
-        "type":  "text",
-        "id":    "subtitle",
-        "label": "Description"
+         "type": "text",
+         "id": "subtitle",
+         "label": "Subheading"
+       },
+       {
+        "type": "select",
+        "id": "color_scheme",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "alt",
+            "label": "Alternate"
+          },
+          {
+            "value": "accent",
+            "label": "Accent"
+          },
+          {
+            "value": "invert",
+            "label": "Inverted"
+          }
+        ],
+        "default": "default",
+        "label": "Color scheme"
       },
-	    {
-         "type":"checkbox",
-         "id":"use_section_bg_color",
-         "label":"Use alternate background"
+     {
+        "type":"range",
+        "id":"columns",
+        "label":"Columns",
+        "min":3,
+        "max":5,
+        "step":1,
+        "default":4
      },
      {
-         "type": "range",
-         "id": "items_per_view",
-         "label": "Visible testimonial count",
-         "min":       2,
-         "max":        5,
-         "step":       1,
-         "default": 3
-     },
-     {
-       "type":      "range",
-       "id":        "slider_autoplay",
-       "min":        0,
-       "max":        7,
-       "step":       1,
-       "label":      "Rotate testimonials every",
-       "default":   0,
-       "unit": "sec",
-       "info": "Testimonials will not auto-rotate at 0"
-     },
-     {
-         "type": "select",
-         "id": "appearance",
-         "options": [
-            { "value": "white_bg", "label": "Shadow box"},
-            { "value": "border", "label": "Border"},
-            { "value": "alt_bg", "label": "Alternate background"},
-            { "value": "primary_bg", "label": "Primary background"},
-            { "value": "dark_bg", "label": "Dark background"}
-         ],
-         "default": "white_bg",
-         "label": "Style"
+      "type": "select",
+      "id": "gutter",
+      "label": "Space between",
+      "options": [
+      {
+         "value": "sm",
+         "label": "Small"
       },
       {
-         "type":"checkbox",
-         "id":"use_author_images",
-         "label":"Enable author images"
-     }
-    ],
-    "blocks": [
+         "value": "md",
+         "label": "Medium"
+      },
       {
-        "type": "quote",
-        "name": "Testimonial",
-        "settings": [
+         "value": "lg",
+         "label": "Large"
+      }
+      ],
+      "default": "md"
+   },
+     {
+        "type": "checkbox",
+        "id": "show_stars",
+        "label": "Show stars"
+     },
+     {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "section_button",
+      "label": "Text"
+    },
+    {
+      "type": "url",
+      "id": "section_button_link",
+      "label": "Link"
+    }
+  ],
+  "blocks":[
+     {
+        "type":"testimonial",
+        "name":"Testimonial",
+        "settings":[
            {
-            "type": "richtext",
-            "id": "quote",
-            "label": "Text",
-            "default": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>"
-          },
-          {
+              "type":"image_picker",
+              "id":"author_image",
+              "label":"Author image"
+           },
+           {
+              "type":"text",
+              "id":"author_name",
+              "label":"Author name",
+              "default":"Author"
+           },
+           {
             "type": "text",
-            "id": "author",
-            "label": "Author",
-            "default": "Author's name"
-          },
-          {
-             "type":"image_picker",
-             "id":"image",
-             "label":"Image",
-             "info": "100 x 100px recommended"
-          }
+            "id": "author_subheading",
+            "label": "Subheading"
+           },
+           {
+              "type":"textarea",
+              "id":"text",
+              "label":"Text",
+              "default":"Review or testimonial text"
+           },
+           {
+              "type": "product",
+              "id": "product",
+              "label": "Product (optional)"
+           }
         ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Testimonials",
-        "category": "Text",
-        "blocks": [
-          {
-            "type": "quote"
+     }
+  ],
+  "presets":[
+     {
+          "name":"Testimonials",
+          "settings": {
+            "color_scheme": "alt"
           },
-          {
-            "type": "quote"
-          },
-          {
-            "type": "quote"
-          }
+          "blocks":[
+           {
+                "type":"testimonial"
+           },
+           {
+                "type":"testimonial"
+           },
+           {
+                "type":"testimonial"
+           },
+           {
+               "type":"testimonial"
+           }
         ]
-      }
-    ]
-  }
+     }
+  ]
+}
 {% endschema %}

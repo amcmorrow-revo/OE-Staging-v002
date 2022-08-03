@@ -1,136 +1,162 @@
-{%- if section.settings.use_rounded_images -%}
-  {% assign rounded_class = "-img-round" %}
-{%- else -%}
-  {% assign rounded_class = null %}
-{%- endif -%}
+<link rel="stylesheet" href="{{ 'rte.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'rte.css' | asset_url | stylesheet_tag }}</noscript>
 
-{%- if section.settings.section_width == 'x_narrow' -%}
-  {% assign col_class = "col-md-8 col-md-offset-2" %}
-{%- elsif section.settings.section_width == 'narrow' -%}
-  {% assign col_class = "col-md-10 col-md-offset-1" %}
-{%- else -%}
-  {% assign col_class = "col-md-12" %}
-{%- endif -%}
-
-
-{%- render 'section-bg-init',
-  section_id: section.id,
-  alt_bg: section.settings.use_section_bg_color
--%}
-
-
-<style>
-  {% if section.settings.use_section_bg_color %}
-    .section-wrapper-bg-{{section.id}}, .section-wrapper-bg-{{section.id}} .block-title {
-      background: {{settings.alternate_bg_color}};
-    }
-  {% endif %}
-</style>
-
-
-<div data-section-id="{{ section.id }}" data-section-type="image-bar-section" class="section-wrapper-bg-{{section.id}}">
-
-  <div class="container hero-container">
-
-    {%
-      render "section-header",
-      section_title: section.settings.title,
-      section_subtitle: section.settings.subtitle
-    %}
-    <div class="row">
-      <div class="{{col_class}}">
-        <div class="custom-page -{{section.settings.font_size}} {{rounded_class}}">
-          {{ pages[section.settings.page_title].content }}
-        </div>
-      </div>
-    </div>
-
+{%- capture Content -%}
+  <div class="#rte @text-size:{{ section.settings.text_size }} @width:{{ section.settings.content_width }} {% unless section.settings.text_aling == 'default' %}text-{{ section.settings.text_align }}{% endunless %}">
+    {{ section.settings.page.content }}
   </div>
+{%- endcapture -%}
 
-</div>
+{%- if section.settings.title != blank -%}
+  {%- assign title = section.settings.title -%}
+{%- else -%}
+  {%- assign title = section.settings.page.title -%}
+{%- endif -%}
 
+{% if section.settings.section_button != blank and section.settings.section_button_link != blank %}
+  {%- assign section_button = section.settings.section_button -%}
+{% endif %}
+
+{% render 'section-body',
+  content: Content,
+  title: title,
+  subtitle: section.settings.subtitle,
+  spaced: true,
+  container: true,
+  color_scheme: section.settings.color_scheme,
+  button: section_button,
+  button_link: section.settings.section_button_link
+%}
 
 {% schema %}
-  {
-    "name": "Page content",
-    "settings": [
+{
+  "name": "t:sections.page.name",
+  "tag": "section",
+  "class": "spaced-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "info": "Leave it blank if you want to use page title as heading"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading"
+    },
+    {
+      "type": "page",
+      "id": "page",
+      "label": "t:sections.page.settings.page.label"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Text size",
+      "options": [
+        {
+          "value": "sm",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "lg",
+          "label": "Large"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text align",
+      "options": [
+          {
+              "value": "left",
+              "label": "Left"
+          },
+          {
+              "value": "center",
+              "label": "Center"
+          },
+          {
+              "value": "right",
+              "label": "Right"
+          },
+          {
+              "value": "default",
+              "label": "Default"
+          }
+      ],
+      "default": "default"
+  },
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "Content width",
+      "options": [
+        {
+          "value": "wide",
+          "label": "Wide"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "narrow",
+          "label": "Narrow"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "alt",
+          "label": "Alternate"
+        },
+        {
+          "value": "accent",
+          "label": "Accent"
+        },
+        {
+          "value": "invert",
+          "label": "Inverted"
+        }
+      ],
+      "default": "default",
+      "label": "Color scheme"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
     {
         "type": "text",
-        "id": "title",
-        "label": "Heading",
-        "default": "Visit Us"
+        "id": "section_button",
+        "label": "Text" 
     },
     {
-      "type":  "text",
-      "id":    "subtitle",
-      "label": "Description"
-    },
+        "type": "url",
+        "id": "section_button_link",
+        "label": "Link"
+    }
+  ],
+  "presets": [
     {
-         "type":"checkbox",
-         "id":"use_section_bg_color",
-         "label":"Use alternate background"
-     },
-      {
-        "type": "paragraph",
-        "content": "This section allows you to show the content of any page you have created directly on your home page."
-      },
-      {
-        "type": "page",
-        "id": "page_title",
-        "label": "Choose page"
-      },
-      {
-       "type":"select",
-       "id":"section_width",
-       "label":"Width",
-       "default":"narrow",
-       "options":[
-          {
-             "label":"Wide",
-             "value":"normal"
-          },
-          {
-             "label":"Medium",
-             "value":"narrow"
-          },
-          {
-             "label":"Narrow",
-             "value":"x_narrow"
-          }
-         ]
-       },
-       {
-            "type":"checkbox",
-            "id":"use_rounded_images",
-            "label":"Enable rounded images",
-            "default": true
-        },
-       {
-        "type":"select",
-        "id":"font_size",
-        "label":"Font size",
-        "default":"lg",
-        "options":[
-           {
-              "label":"Normal",
-              "value":"normal"
-           },
-           {
-              "label":"Large",
-              "value":"lg"
-           },
-           {
-              "label":"Extra large",
-              "value":"xl"
-           }
-          ]
-         }
-    ],
-    "presets": [
-        {
-          "name": "Page",
-          "category": "Text"
-        }
-      ]
-  }
+      "name": "t:sections.page.presets.name"
+    }
+  ]
+}
 {% endschema %}

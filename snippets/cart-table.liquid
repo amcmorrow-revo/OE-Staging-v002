@@ -1,80 +1,74 @@
-<table class="table table table-shopping-cart" id="cart-page-table">
-  <thead>
-    <tr>
-      <th>{{ 'cart.general.photo' | t }}</th>
-      <th>{{ 'cart.general.price' | t }}</th>
-      <th>{{ 'cart.general.quantity' | t }}</th>
-      <th>{{ 'cart.label.total' | t }}</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for item in cart.items %}
-      <tr class="cart-line-item line{{ forloop.index }}">
-        <td class="table-shopping-cart-img">
-          <a href="{{ item.url | within: collections.all }}">
-            <img class="cart__image" src="{{ item | img_url: '200x' }}" alt="{{ item.title | escape }}">
-          </a>
-          <div class="table-shopping-cart-item">
-            <a class="table-shopping-cart-item-title" href="{{ item.url }}">
-              {{ item.product.title | escape }}
-            </a>
-            {% unless item.variant.title contains 'Default' %}
-             <p class="table-shopping-cart-item-variant">{{ item.variant.title | escape }}</p>
-            {% endunless %}
-            {%- if item.selling_plan_allocation -%}
-              <p>{{ item.selling_plan_allocation.selling_plan.name }}</p>
-            {%- endif -%}
-          </div>
-        </td>
+<link rel="stylesheet" href="{{ 'cart-table.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'cart-table.css' | asset_url | stylesheet_tag }}</noscript>
 
-
-        <td class="cart__price-wrapper">
-          <p class="mobile-label-price">{{ 'cart.general.price' | t }}</p>
-           {% if item.original_price != item.final_price %}
-          <span  data-money="{{ item.original_price }}" class="money original_price">{{ item.original_price | money }}</span><br class="clearfix">
-         <span data-money="{{ item.final_price }}" class="money">{{ item.final_price | money }}</span>
-          {% else %}
-         <span data-money="{{ item.final_price }}" class="money">{{ item.final_price | money }}</span>
-          {% endif %}
-
-          {%- if item.line_level_discount_allocations != blank -%}
-          <ul class="order-discount order-discount--list order-discount--title order-discount--cart" aria-label="{{ 'customer.order.discount' | t }}">
-            {%- for discount_allocation in item.line_level_discount_allocations -%}
-            <li class="order-discount__item">
-              {%- render 'icon-saletag' -%}{{ discount_allocation.discount_application.title }} (-{{ discount_allocation.amount | money }})
-            </li>
-            {%- endfor -%}
-          </ul>
-          {%- endif -%}
-          <p class="cart-unit-price">
-            {% render 'unit-price', variant: item.variant %}
-          </p>
-        </td>
-        <td class="table-shopping-cart-qty">
-          <p class="mobile-label-quantity">{{ 'cart.general.quantity' | t }}</p>
-          <div class="table-shopping-qty product-item-caption-qty">
-            <button type="button" class="table-shopping-qty-minus">-</button>
-            <input class="cart__qty-input" type="text" name="updates[]" id="updates_{{ item.key }}" data-id="{{ item.id }}" value="{{ item.quantity }}" pattern="[0-9]*">
-            <button type="button" class="table-shopping-qty-plus">+</button>
-          </div>
-          <div class="ajaxcart__errors text-center ajaxcart__item__{{ item.id }}__errors">{{ 'cart.general.all_stock_in_cart' | t }}</div>
-        </td>
-        <td class="cart__price-wrapper cart-flex-item">
-          <p class="mobile-label-total">{{ 'cart.label.total' | t }}</p>
-            {%- if item.original_line_price != item.final_line_price -%}
-          <span data-money="{{ item.original_line_price }}" class="money table-shopping-cart-item-price-total original_price">{{ item.original_line_price | money }}</span><br class="clearfix">
-          <span data-money="{{ item.final_line_price }}" class="money table-shopping-cart-item-price-total">{{ item.final_line_price | money }}</span>
-          {% else %}
-          <span data-money="{{ item.final_line_price }}" class="money table-shopping-cart-item-price-total">{{ item.final_line_price | money }}</span>
-          {% endif %}
-
-
-        </td>
-        <td class="cart_remove">
-          <a class="table-shopping-remove cart-remove-btn" data-id="{{ item.id }}" href="javascript:void(0);"></a>
-        </td>
-      </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<div id="main-cart-items" data-section-id="{{ section.id }}">
+    <table class="#cart-table">
+        <thead>
+            <th>{{ 'sections.cart.headings.product' | t }}</th>
+            <th>{{ 'sections.cart.headings.price' | t }}</th>
+            <th class="text-center">{{ 'sections.cart.headings.quantity' | t }}</th>
+            <th>{{ 'sections.cart.headings.total' | t }}</th>
+        </thead>
+        <tbody>
+            {% for item in cart.items %}
+                <tr data-line="{{ item.index | plus: 1 }}">
+                    <td>
+                        <div class="#cart-table-item-card">
+                            <div class="#cart-table-item-card-image">
+                                {% render 'media',
+                                    image: item.image
+                                %}
+                            </div>
+                            <div class="#cart-table-item-card-info">
+                                <h5 class="#cart-table-item-card-title">{{ item.product.title }}</h5>
+                                <p class="#cart-table-item-card-subtitle">{{ item.variant.title }}</p>
+                                <remove-cart-item index="{{ item.index | plus: 1 }}" section-id="{{ section.id }}">
+                                    <a class="#cart-table-item-card-remove" href="{{ item.url_to_remove }}">
+                                        {% render 'icon', name: 'x' %}
+                                        {{ 'sections.cart.remove_title' | t }}
+                                    </a>
+                                </remove-cart-item>
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{ item.price | money }}</td>
+                    <td class="text-center">
+                        <cart-quantity class="#cart-table-qty" index="{{ item.index | plus: 1 }}" section-id="{{ section.id }}">
+                            {% assign minusButtonDisabled = '' %}
+                            {%- if item.quantity == 1 -%}
+                                {% assign minusButtonDisabled = 'disabled' %}
+                            {%- endif -%}
+                            {% assign plusButtonDisabled = '' %}
+                            {%- if item.quantity == item.variant.inventory_quantity -%}
+                                {% assign plusButtonDisabled = 'disabled' %}
+                            {%- endif -%}
+                            <button type="button" class="#cart-table-qty-btn" {{minusButtonDisabled}} data-minus-button>
+                                {% render 'icon', name: 'minus' %}
+                            </button>
+                            <input class="#cart-table-qty-input"
+                                type="number"
+                                name="updates[]"
+                                value="{{ item.quantity | escape }}"
+                                min="0"
+                                max="{{ item.variant.inventory_quantity }}" 
+                                step="1"
+                                aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                                id="Quantity-{{ item.index | plus: 1 }}"
+                                data-input="{{ item.index | plus: 1 }}"
+                            >
+                            <button type="button" class="#cart-table-qty-btn" {{plusButtonDisabled}} data-plus-button>
+                                {% render 'icon', name: 'plus' %}
+                            </button>
+                        </cart-quantity>
+                    </td>
+                    <td>
+                        <line-price index="{{ item.index | plus: 1 }}" section-id="{{ section.id }}">
+                            {{ item.final_line_price | money }}
+                        </line-price>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>   
+    </table>
+</div>
+<script type="module" src="{{ 'line-price.js' | asset_url }}"></script>
