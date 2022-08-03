@@ -588,38 +588,49 @@
               "collection": "fishing"
             }
           },
-          "1541802867824-1": {
-            "type": "collection",
-            "settings": {
-              "collection": "replacement-blades"
-            }
-          },
           "1541802867824-3": {
             "type": "collection",
             "settings": {
               "collection": "utility"
             }
           },
+          "5455a943-a278-4bdf-b71e-1dd7d69e20e6": {
+            "type": "collection",
+            "settings": {
+              "collection": "processing"
+            }
+          },
+          "1541802867824-1": {
+            "type": "collection",
+            "disabled": true,
+            "settings": {
+              "collection": "replacement-blades"
+            }
+          },
           "1541802867824-0": {
             "type": "collection",
+            "disabled": true,
             "settings": {
               "collection": "everyday-carry"
             }
           },
           "1541802867824-5": {
             "type": "collection",
+            "disabled": true,
             "settings": {
               "collection": "game-processing"
             }
           },
           "0c94a7e5-f1e7-4b37-8866-77fa6c57d69e": {
             "type": "collection",
+            "disabled": true,
             "settings": {
               "collection": "outdoors"
             }
           },
           "b9d3424e-ae63-47ab-a399-7449b9920164": {
             "type": "collection",
+            "disabled": true,
             "settings": {
               "collection": "sharpeners-accessories"
             }
@@ -635,8 +646,9 @@
         "block_order": [
           "1541802867824-4",
           "1541802867824-2",
-          "1541802867824-1",
           "1541802867824-3",
+          "5455a943-a278-4bdf-b71e-1dd7d69e20e6",
+          "1541802867824-1",
           "1541802867824-0",
           "1541802867824-5",
           "0c94a7e5-f1e7-4b37-8866-77fa6c57d69e",
@@ -750,6 +762,7 @@
       },
       "1543732758261": {
         "type": "hero-image",
+        "disabled": true,
         "settings": {
           "overlay_opacity": 30,
           "slide_height_val": "81",
@@ -815,6 +828,7 @@
       },
       "165575020273ce6f82": {
         "type": "rich-text",
+        "disabled": true,
         "settings": {
           "text_title": "THE RAZORSAFE™ SYSTEM",
           "text": "<p>Our patented system is the strongest and safest replaceable blade knife available, with lighting fast blade changes at the push of a button.<\/p>",
@@ -830,6 +844,7 @@
       },
       "1655750225ea3d74e6": {
         "type": "rich-text",
+        "disabled": true,
         "settings": {
           "text_title": "BLADE PACK HQ",
           "text": "<p>Ready to shop for more blades, more styles, or both? Click below. Interested in a blade pack subscription service? Check back soon.<\/p>",
