@@ -11,7 +11,7 @@
     {% capture media_class %}product-featured-media{% endcapture %}
     {% capture media_wrapper_id %}{{ media_id }}-wrapper{% endcapture %}
 
-    <div class="swiper-slide {% if media.media_type == "image"%} zoom-img-wrap {% endif %}" id="{{ media.id }}">
+    <div class="swiper-slide {% if media.media_type == "image"%} zoom-img-wrap {% endif %}{% if forloop.index == 1 %} swiper-slide-active{% endif %}" id="{{ media.id }}">
 
      <div id="{{ media_wrapper_id }}"
     class="product-single__media-wrapper {% if media.media_type == "image"%} zoom-img-wrap {% endif %}"
@@ -79,15 +79,22 @@
         <noscript>
           <img class="product-item-img zoom-img" srcset="{{ media.preview_image.src | img_url: product_image_size }} 1x, {{ media.preview_image.src | img_url: product_image_size, scale: 2 }} 2x, {{ media.preview_image.src | img_url: product_image_size, scale: 3 }}, 3x," alt="{{ media.alt | escape }}" title="{{ product.title | escape }}"/>
         </noscript>
-        <img class="product-item-img zoom-img lazyload blur-up {% if forloop.index == 1 %} lazypreload {% endif %}"  data-srczoom="{{ media.preview_image.src | img_url: "2000x" }}"
-             tabindex="-1"
-             src="{{ media |img_url: '100x' }}"
-             data-src="{{ img_url }}"
-             data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-             data-aspectratio="{{ media.preview_image.aspect_ratio }}"
-             data-sizes="auto"
-             alt="{{ media.alt | escape }}" title="{{product.title}}"
-             style="max-width: {{max_img_width}};"/>
+        {% if forloop.index == 1 %}
+            <img src="{{ media |img_url: '300x' }}" data-srczoom="{{ media.preview_image.src | img_url: "2000x" }}"
+                 {% if media.preview_image.width > 767 %}data-srcset="{{ media | img_url: '600x' }} 768w"{% endif %}
+                 class="product-item-img zoom-img swiper-lazy"
+                 alt="{{ media.alt | escape }}" title="{{product.title}}"
+                 loading="eager"
+            />
+        {% else %}
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                 data-src="{{ media |img_url: '600x' }}" data-srczoom="{{ media.preview_image.src | img_url: "2000x" }}"
+                    {% comment %}{% if media.preview_image.width > 767 %}data-srcset="{{ media | img_url: '600x' }} 768w"{% endif %}{% endcomment %}
+                 class="product-item-img zoom-img swiper-lazy"
+                 alt="{{ media.alt | escape }}" title="{{product.title}}"
+            />
+        {% endif %}
+
         {% if section.settings.enable_zoom %}
         <a tabindex="-1" class="zoom-img-container zoom-img-position" href="javascript:void(0);">
         </a>
@@ -146,11 +153,3 @@
     {% endif %}
  {% endcomment %}
      </div>
-       
-       <style>
-         .zoomImg{
-         
-         background-color: white !important;
-         }
-       
-       </style>

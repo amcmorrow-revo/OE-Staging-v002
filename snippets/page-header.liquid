@@ -73,6 +73,7 @@ TODO
      }
   </style>
 
+    {% comment %}
   <header
     id="page-header"
     class="
@@ -80,12 +81,25 @@ TODO
       {{class}}
       {{overlapped}}
       as-background
-      lazyload
+      no-lazyload
       visible_lazy"
     data-bgset="{% render 'bgset', image: bg %}"
     data-sizes="auto"
     data-parent-fit="cover"
     style="background-image: url({{ bg_url }});">
+    {% endcomment %}
+    <header id="page-header" class="page-header {{class}} {{overlapped}} as-background">
+        <img src="{{ bg.src | img_url: '400x' }}" alt="{{ bg.alt | escape }}"
+             srcset="
+        {% if bg.width > 768 %}{{ bg.src | img_url: '600x' }} 1080w{% endif %}
+        {% if bg.width > 900 %},{{ bg.src | img_url: '900x' }} 1512w{% endif %}
+        {% if bg.width > 1080 %},{{ bg.src | img_url: '1080x' }} 2260w{% endif %}
+        {% if bg.width > 1512 %},{{ bg.src | img_url: '1512x' }} 2700w{% endif %}
+        "
+            sizes="100vw"
+             class="page-header-bg-img"
+             loading="eager"
+        />
     {%- if use_article_meta -%}
       {%- render 'article-meta'
         author: section.settings.article_meta_author,

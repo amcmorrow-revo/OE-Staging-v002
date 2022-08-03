@@ -44,11 +44,11 @@
       <header class="giftcard-header" role="banner">
         <div class="header-logo page-title" itemscope itemtype="http://schema.org/Organization">
           {% if settings.use_logo %}
-            <a href="{{shop.url}}" itemprop="url">
-              <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+            <a href="{{shop.url}}">
+              <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}">
             </a>
           {% else %}
-              <a class="navbar-brand text-logo" href="{{routes.root_url}}" itemprop="url">{{ shop.name }}</a>
+              <a class="navbar-brand text-logo" href="{{routes.root_url}}">{{ shop.name }}</a>
           {% endif %}
         </div>
         <div class="shop-url">{{ shop.url }}</div>

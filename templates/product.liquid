@@ -1,23 +1,8 @@
 {% section 'product-template' %}
- <div id="expertvoice-recommendations2" style="margin-left: 5%; margin-right: 5%;"></div>
-        
-    <script type="text/javascript">
-    (function(e,x,p) {
-      e.EV = e.EV || {};
-      e.EV.recoSettings = {
-        apiKey: '83d15c35bcfd4e3fab529c1cc173d8d5',
-        productCode: '{{product.id}}',
-        target: '#expertvoice-recommendations2',
-        theme: 'light',
-        logoStyle: 'red',
-      };
-  
-      var s = x.createElement('script');
-      s.src = p;
-      s.async = true;
-   
-      var h = x.getElementsByTagName('head')[0];
-      h.appendChild(s);
-    })(window, document, '//cdn.expertvoice.com/widget/js/recommendations/v1/plugin.js');
-    </script>
+ <div id="expertvoice-recommendations"
+      style="margin-left: 5%; margin-right: 5%;"
+      class="intersectLoader"
+      data-func="expertvoice"
+      data-opts="{'productCode':'{{product.id}}','theme':'light','logoStyle':'red'}"
+ ></div>
 {% section 'product-recommendations' %}

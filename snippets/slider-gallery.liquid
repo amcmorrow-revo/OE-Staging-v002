@@ -80,7 +80,7 @@
         <noscript>
           <img class="product-item-img zoom-img" srcset="{{ media.preview_image.src | img_url: product_image_size }} 1x, {{ media.preview_image.src | img_url: product_image_size, scale: 2 }} 2x, {{ media.preview_image.src | img_url: product_image_size, scale: 3 }}, 3x," alt="{{ media.alt | escape }}" title="{{ product.title | escape }}"/>
         </noscript>
-        <img class="product-item-img zoom-img lazyload blur-up {% if forloop.index == 1 %} lazypreload {% endif %}"  data-srczoom="{{ media.preview_image.src | img_url: "2000x" }}"
+        <img class="slider-gallery-liquid product-item-img zoom-img lazyload no-blur-up {% if forloop.index == 1 %} lazypreload {% endif %}"  data-srczoom="{{ media.preview_image.src | img_url: "2000x" }}"
              tabindex="-1"
              src="{{ media |img_url: '100x' }}"
              data-src="{{ img_url }}"

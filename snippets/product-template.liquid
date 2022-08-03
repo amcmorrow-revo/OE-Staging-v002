@@ -9,8 +9,22 @@
 {% assign show_cart_button = false %}
 {% endif %}
 
+{% assign tempDescriptionParts = product.description |  replace: "<iframe ", "<!-- iframe_split --><iframe " | replace: "/iframe>", "/iframe><!-- iframe_split -->" | split: "<!-- iframe_split -->" %}
+{% if tempDescriptionParts.size > 1 %}
+ {% capture newDescription %}
+   {% for tempDescription in tempDescriptionParts %}
+     {% if tempDescription contains "<iframe " %}
+        {{ tempDescription | replace: " src=", ' src="about:blank" data-src=' }}
+     {% else %}
+        {{ tempDescription }}
+     {% endif %}
+   {% endfor %}
+ {% endcapture %}
+{% else %}
+  {% assign newDescription = product.description  %}
+{% endif %}
 
-{% assign descriptionParts = product.description | split: "<!-- split -->" %}
+{% assign descriptionParts = newDescription | split: "<!-- split -->" %}
 {% if descriptionParts.size > 1%}
 {% assign descriptionFirstPart = descriptionParts | first %}
 {% assign descriptionSecondPart = descriptionParts | last %}
@@ -66,7 +80,7 @@
   <div class="row row-col-norsp product-page-row" id="parent" data-gutter="none">
     <div class="product_images_length-{{product_images_length}} product-item-image-{{section.settings.description_background_color}} {{ product_image_width }} product-gallery-{{ section.id }}" id="product-gallery">
       <div class="zoomer ">
-        <img src="#" alt="Zoom image"/>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Zoom image"/>
       </div>
       <div class="product-item-wrap {{ product_image_class }} slider-{{ section.id }} equal-columns-{{section.id}} {% if section.settings.image_gallery_type == 'thumbnails_gallery_vertical' %} use_overflow{% endif %}" id="slider" data-product-single-media-group>
         {% if section.settings.image_gallery_type == 'thumbnails_gallery_vertical' or section.settings.image_gallery_type == 'thumbnails_gallery_horizontal' %}
@@ -217,11 +231,11 @@
             </div>
             {% else %}
             <div class="rte-page rte-page-fade main-product-description-{{ section.id }}" >
-              {{ product.description }}
+              {{ newDescription }}
             </div>
             {% endif %}
 
-            {% if product.description contains '<!-- TABS -->' %}
+            {% if newDescription contains '<!-- TABS -->' %}
             <div class="product-description-tabs-{{section.id}} product-description-tabs">
 
             </div>

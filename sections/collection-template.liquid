@@ -36,7 +36,7 @@ NOTE:: keep this code for now. Will use price slider feature in future
 {% assign product_columns = section.settings.grid | plus:0 %}
 {% assign product_rows = section.settings.rows | plus:0 %}
 {% assign products_per_page = product_columns | times: product_rows %}
-{% assign product_img_url_width = "450x"%}
+{% assign product_img_url_width = "450x" %}
 {% paginate collection.products by products_per_page %}
   {% if section.settings.grid == 4 %}
     {% assign grid_item_width = '3' %}
@@ -44,7 +44,7 @@ NOTE:: keep this code for now. Will use price slider feature in future
    {% assign grid_item_width = '4' %}
   {% else %}
     {% assign grid_item_width = '6' %}
-    {% assign product_img_url_width = "550x"%}
+    {% assign product_img_url_width = "550x" %}
   {% endif %}
 
 {% render 'advanced-tag-loop' %}
@@ -85,58 +85,59 @@ NOTE:: keep this code for now. Will use price slider feature in future
       collection: collection
     %}
 
+      {% comment %}
+          <!-- <style>
+            {% if collection.image  or section.settings.image %}
+              header.page-header:after {
+               background-color: #000;
+               background-image: none;
 
-    <!-- <style>
-      {% if collection.image  or section.settings.image %}
-        header.page-header:after {
-         background-color: #000;
-         background-image: none;
+                {% assign opacityValue = section.settings.background_opacity %}
+                {% if opacityValue == 100 %}
+                  opacity: 1;
+                {% else %}
+                  opacity: 0.{{opacityValue}};
+                {% endif %}
+              }
+            {% endif %}
+            header.page-header {
+              color: {{section.settings.collection_text_color}};
+            }
+          </style>
 
-          {% assign opacityValue = section.settings.background_opacity %}
-          {% if opacityValue == 100 %}
-            opacity: 1;
-          {% else %}
-            opacity: 0.{{opacityValue}};
-          {% endif %}
-        }
-      {% endif %}
-      header.page-header {
-        color: {{section.settings.collection_text_color}};
-      }
-    </style>
-
-   <header class="page-header as-background {% if linklists[collection.handle].links != blank %} special_collection_header {% endif %}  {% if collection.image  or section.settings.image %} lazyload visible_lazy {% endif %}"
-           {% if collection.image  %}
-             data-bgset="{% render 'bgset', image: collection.image %}"
-             data-sizes="auto"
-             data-parent-fit="cover"
-             style="background-image: url('{{collection.image | img_url: '300x300' }});"
-            {% elsif section.settings.image %}
-            data-bgset="{% render 'bgset', image: section.settings.image %}"
-             data-sizes="auto"
-             data-parent-fit="cover"
-             style="background-image: url('{{ section.settings.image | img_url: '300x300' }});"
-             {% endif %}
-           >
-      <div class="page-header-inner-bottom">
-        <h1 class="collection-page-header-title page-header-title-sm ">{{ collection.title | escape }}</h1>
-      </div>
-      {% assign specialCollectionHandle = collection.handle | append: "-menu" %}
-      {% if linklists[specialCollectionHandle].links != blank %}
-        <nav class="page-header-nav">
-          <ul class="page-header-nav-list">
-            {% for link in linklists[specialCollectionHandle].links %}
-              <li>
-                <a href="{{link.url}}">{{link.title}}</a>
-              </li>
-            {% endfor %}
-          </ul>
-        </nav>
-      {% endif %}
-      {% if section.settings.breadcrumbs_enable %}
-        {% render 'breadcrumb' breadcrumb_class:"page-header-breadcrumb" %}
-      {% endif %}
-    </header> -->
+         <header class="page-header as-background {% if linklists[collection.handle].links != blank %} special_collection_header {% endif %}  {% if collection.image  or section.settings.image %} lazyload visible_lazy {% endif %}"
+                 {% if collection.image  %}
+                   data-bgset="{% render 'bgset', image: collection.image %}"
+                   data-sizes="auto"
+                   data-parent-fit="cover"
+                   style="background-image: url('{{collection.image | img_url: '300x300' }});"
+                  {% elsif section.settings.image %}
+                  data-bgset="{% render 'bgset', image: section.settings.image %}"
+                   data-sizes="auto"
+                   data-parent-fit="cover"
+                   style="background-image: url('{{ section.settings.image | img_url: '300x300' }});"
+                   {% endif %}
+                 >
+            <div class="page-header-inner-bottom">
+              <h1 class="collection-page-header-title page-header-title-sm ">{{ collection.title | escape }}</h1>
+            </div>
+            {% assign specialCollectionHandle = collection.handle | append: "-menu" %}
+            {% if linklists[specialCollectionHandle].links != blank %}
+              <nav class="page-header-nav">
+                <ul class="page-header-nav-list">
+                  {% for link in linklists[specialCollectionHandle].links %}
+                    <li>
+                      <a href="{{link.url}}">{{link.title}}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </nav>
+            {% endif %}
+            {% if section.settings.breadcrumbs_enable %}
+              {% render 'breadcrumb' breadcrumb_class:"page-header-breadcrumb" %}
+            {% endif %}
+          </header> -->
+            {% endcomment %}
     <div class="page-wrapper" id="collectionWrapper">
 
      {% if collection.description != blank %}
@@ -372,18 +373,3 @@ NOTE:: keep this code for now. Will use price slider feature in future
   ]
 }
 {% endschema %}
-{% if collection.handle == 'all' %}
-<style>
-
-.nav-standard-float,.nav-container-float {
-
-background-image: url("https://cdn.shopify.com/s/files/1/1165/7970/files/Header-BackgroundTexture_1.jpg?v=1629921651") !important;
-    background-position: center !important; /* Center the image */
-  background-repeat: no-repeat !important; /* Do not repeat the image */
-  background-size: cover !important;
-  object-fit: cover !important;;
-}
-</style>
-{% else %}
-    
-{% endif %}

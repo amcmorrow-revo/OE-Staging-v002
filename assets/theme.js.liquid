@@ -2018,6 +2018,8 @@ theme.ProductPage = (function() {
       }
       this.settings.swiperObjects.mySwiper = new Swiper ('.swiper-main-'+this.settings.sectionId, {
         // Optional parameters
+        lazy:true,
+        preloadImages: false,
         direction: 'horizontal',
         pagination: {
             el: '.swiper-pagination-'+this.settings.sectionId,
@@ -2077,6 +2079,8 @@ theme.ProductPage = (function() {
       });
 
      var gallerySwiperThumbs = this.settings.swiperObjects.gallerySwiperThumbs = new Swiper('#swiper-gallery-thumbs-'+this.settings.sectionId, {
+       lazy:true,
+       preloadImages: false,
        spaceBetween: 0,
         slidesPerView: 'auto',
         centeredSlides: true,
@@ -2130,7 +2134,9 @@ theme.ProductPage = (function() {
 
 
        this.settings.swiperObjects.gallerySwiper = new Swiper('#swiper-gallery-'+this.settings.sectionId, {
-        spaceBetween: 0,
+         lazy:true,
+         preloadImages: false,
+         spaceBetween: 0,
         slidesPerView: 1,
          roundLengths: true,
          simulateTouch: false,
@@ -4400,6 +4406,7 @@ theme.ColumnsSliderSection = (function(){
     var autoplay = +$(container).attr('data-slidesSpeed');
 
     var swiperSettings = {
+      lazy:true,
       direction: 'horizontal',
       loop: true,
       simulateTouch: true,
@@ -4458,6 +4465,8 @@ theme.ColumnsSliderSection = (function(){
         }
       var mySwiper = this.mySwiper = new Swiper ('#swiper-main-'+sectionId, {
         // Optional parameters
+        lazy:true,
+        preloadImages: false,
         navigation: {
           nextEl: '#swiper-button-next-'+sectionId,
           prevEl: '#swiper-button-prev-'+sectionId

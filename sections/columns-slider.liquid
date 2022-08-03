@@ -93,19 +93,23 @@
   <div class="desktop-hidden">
     <div class="swiper-container {% if section.settings.correct_mobile_image_ratio %} image_autoheight {% endif %}" id="swiper-{{ section.id }}">
       <div class="swiper-wrapper">
+          {% assign slide_num = 0 %}
           {% for block in section.blocks %}
+          {% assign slide_num = slide_num | plus: 1 %}
           {% capture img_count %}{% cycle 1, 2 %}{% endcapture %}
           <div {{ block.shopify_attributes }} class="swiper-slide -hero-slider" id="slide-{{ block.id }}" data-index="{{ forloop.index }}" style="{{img_height_style}}">
 
               <div class="hero-item-overlay" style="background: #000; opacity: {{overlay_opacity}}"></div>
 
-              {%- render 'bg-img'
+              {%- render 'bg-img-mobile'
                 img_src: block.settings.image,
                 class_name: 'hero-item-slide',
                 placeholder_id: img_count,
-                placeholder_type: 'lifestyle'
+                placeholder_type: 'lifestyle',
+                slide_num: slide_num
               -%}
 
+              {% comment %}
               {% if section.settings.correct_mobile_image_ratio %}
                 {% if block.settings.image != blank %}
                	  <img class="home_slide_auto_img" src="{{block.settings.image | img_url: "300x"}}" {% if block.settings.image.alt != blank %} alt="{{block.settings.image.alt}}" {% endif %} />
@@ -114,6 +118,7 @@
                   {{ svg_name | placeholder_svg_tag: "home_slide_auto_img" }}
                 {%  endif %}
               {%  endif %}
+              {% endcomment %}
 
 
               {% if block.settings.link != blank %}
