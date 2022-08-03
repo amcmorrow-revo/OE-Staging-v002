@@ -870,7 +870,15 @@
       "16315580195f8cab5f",
       "1543732758261",
       "1630599348f72fa25b"
-    ]
+    ],
+    "blocks": {
+      "10613633940829346878": {
+        "type": "shopify:\/\/apps\/wizio-bundle-quantity-breaks\/blocks\/app-embed\/8331d8b5-f4ba-4f29-9cd9-62bbb3b17bde",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
   },
   "presets": {
     "Empire": {
