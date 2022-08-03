@@ -675,6 +675,7 @@
           "1541803852428-1": {
             "type": "image",
             "settings": {
+              "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0000_Layer_5.jpg",
               "title": "HUNTING",
               "subheading": "In the Field",
               "link": "shopify:\/\/collections\/hunting"
@@ -683,6 +684,7 @@
           "1541803852428-2": {
             "type": "image",
             "settings": {
+              "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0003_Layer_1.jpg",
               "title": "FISHING",
               "subheading": "On the Water",
               "link": "shopify:\/\/collections\/fishing"
@@ -691,6 +693,7 @@
           "1543732439534": {
             "type": "image",
             "settings": {
+              "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0001_Layer_3.jpg",
               "title": "UTILITY",
               "subheading": "On the Jobsite",
               "link": "shopify:\/\/collections\/utility"
@@ -699,6 +702,7 @@
           "1541803852428-0": {
             "type": "image",
             "settings": {
+              "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0000_Layer_4.jpg",
               "title": "PROCESSING",
               "subheading": "In the Kitchen",
               "link": "shopify:\/\/collections\/game-processing"
