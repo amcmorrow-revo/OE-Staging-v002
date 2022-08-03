@@ -1,0 +1,87 @@
+<style>
+  {%- assign font_body_bold = settings.base_font_value | font_modify: 'weight', 'bolder' -%}
+  {%- assign font_body_italic = settings.base_font_value | font_modify: 'style', 'italic' -%}
+  {% assign font_header_bold = settings.header_font_value | font_modify: 'weight', 'bolder' %}
+
+  {{ settings.header_font_value | font_face }}
+  {{ settings.base_font_value | font_face }}
+  {{ font_body_bold | font_face }}
+  {{ font_body_italic | font_face }}
+  {{ font_header_bold | font_face }}
+
+  {% assign color_primary_d20 = settings.primary_color | color_darken: 20  %}
+  {% assign color_primary_d50 = settings.primary_color | color_darken: 50  %}
+  {% assign color_primary_d70 = settings.primary_color | color_darken: 70  %}
+  :root {
+    --color-primary: {{ settings.primary_color | color_to_rgb }};
+    --color-primary-rgb: {{ settings.primary_color | color_extract: 'red' }}, {{ settings.primary_color | color_extract: 'green' }}, {{ settings.primary_color | color_extract: 'blue' }};
+    --color-primary-lighten-10: {{ settings.primary_color | color_lighten: 10 | color_to_rgb }};
+    --color-primary-lighten-15: {{ settings.primary_color | color_lighten: 15 | color_to_rgb }};
+    --color-primary-lighten-20: {{ settings.primary_color | color_lighten: 20 | color_to_rgb }};
+    --color-primary-lighten-30: {{ settings.primary_color | color_lighten: 30 | color_to_rgb }};
+    --color-primary-darken-10: {{ settings.primary_color | color_darken: 10 | color_to_rgb }};
+    --color-primary-darken-15: {{ settings.primary_color | color_darken: 15  | color_to_rgb }};
+    --color-primary-darken-20: {{ color_primary_d20  | color_to_rgb }};
+    --color-primary-darken-20-rgb: {{ color_primary_d20 | color_extract: 'red' }}, {{ color_primary_d20 | color_extract: 'green' }}, {{ color_primary_d20 | color_extract: 'blue' }};
+    --color-primary-darken-50: {{ color_primary_d50  | color_to_rgb }};
+    --color-primary-darken-50-rgb: {{ color_primary_d50 | color_extract: 'red' }}, {{ color_primary_d50 | color_extract: 'green' }}, {{ color_primary_d50 | color_extract: 'blue' }};
+    --color-primary-darken-70: {{ color_primary_d70  | color_to_rgb }};
+    --color-primary-darken-70-rgb: {{ color_primary_d70 | color_extract: 'red' }}, {{ color_primary_d70 | color_extract: 'green' }}, {{ color_primary_d70 | color_extract: 'blue' }};
+    --color-primary-darken-80: {{ settings.primary_color | color_darken: 80  | color_to_rgb }};
+    --color-header: {{ settings.header_text_color | color_to_rgb }};
+    --color-header-darken-15: {{ settings.header_text_color | color_darken: 15 | color_to_rgb }};
+    --color-heading: {{ settings.heading_text_color | color_to_rgb }};
+    --color-body: {{ settings.body_text_color | color_to_rgb }};
+    --color-alternative-headings: {{ settings.alternate_headings_color | color_to_rgb }};
+    --color-alternative: {{ settings.alternate_text_color | color_to_rgb }};
+    --color-alternative-darken-15: {{ settings.alternate_text_color | color_darken: 15 | color_to_rgb }};
+    --color-alternative-darken-25: {{ settings.alternate_text_color | color_darken: 25 | color_to_rgb }};
+    --color-btn: {{ settings.button_text_color | color_to_rgb }};
+    --color-btn-darken-15: {{ settings.button_text_color | color_darken: 15 | color_to_rgb }};
+    --color-footer: {{ settings.footer_text_color | color_to_rgb }};
+    --color-footer-heading: {{ settings.footer_heading_color | color_to_rgb }};
+    --color-footer-link: {{ settings.footer_link_color | color_to_rgb }};
+    --color-footer-link-darken-15: {{ settings.footer_link_color | color_darken: 15 | color_to_rgb }};
+    --color-price: {{ settings.compare_price_color | color_to_rgb }};
+    --color-bg-nav: {{ settings.header_bg_color | color_to_rgb }};
+    --color-bg-nav-darken-10: {{ settings.header_bg_color | color_darken: 10 | color_to_rgb }};
+    --color-bg-nav-darken-15: {{ settings.header_bg_color | color_darken: 15 | color_to_rgb }};
+    --color-bg-body: {{ settings.body_background_color | color_to_rgb }};
+    --color-bg-alternative: {{ settings.alternate_bg_color | color_to_rgb }};
+    --color-bg-sale-label: {{ settings.sale_label_color | color_to_rgb }};
+    --color-shadow-sale-label: {{ settings.sale_label_color | color_darken: 15 | color_modify: 'alpha', 0.25 | color_to_rgb }};
+    --color-bg-footer: {{ settings.footer_bg_color | color_to_rgb }};
+    --color-bg-footer-darken-10: {{ settings.footer_bg_color | color_darken: 10 | color_to_rgb }};
+
+    --font-family: {{ settings.base_font_value.family }}, {{ settings.base_font_value.fallback_families }};
+    --font-family-header: {{ settings.header_font_value.family }}, {{ settings.header_font_value.fallback_families }};
+    --font-size: {{ settings.body_text_size | append: "px" }};
+    --font-size-header: {{ settings.header_size_1 | append: "px" }};
+    --font-size-logo: {{ settings.head_font_size | append: "px" }};
+    --font-size-title-bar: {{ settings.title_bar_text_size | append: "px" }};
+    --font-size-nav-header: {{ settings.nav_header_size | append: "px" }};
+    --font-size-rte: {{ settings.rte_body_text_size | append: "px" }};
+    --font-size-rte-header: {{ settings.rte_header_size_1 | append: "px" }};
+    --font-weight: {{ settings.base_font_value.weight }};
+    --font-weight-bolder: {{ font_body_bold.weight }};
+    --font-weight-header: {{ settings.header_font_value.weight }};
+    --font-weight-title-bar: {{ settings.title_bar_font_weight }};
+    --font-weight-nav: {{ settings.nav_text_weight }};
+    --font-weight-section-title: {{ settings.section_header_font_weight }};
+    --font-style: {{ settings.base_font_value.style }};
+    --font-style-header: {{ settings.header_font_value.style }};
+
+    --text-transform-title-bar: {{ settings.title_bar_text_transform }};
+    --text-transform-nav: {{ settings.nav_text_transform }};
+    --text-transform-section-title: {{ settings.section_title_text_transfrom }};
+
+    --opacity-overlay-page-header: {{ settings.page_header_overlay | times: 0.01 }};
+
+    --height-product-image: {{ settings.collection_height | append: "px" }};
+
+    --url-svg-check: url({{ 'icon-check.svg' | asset_url }});
+
+    --payment-terms-background-color: {{ settings.body_background_color }};
+    --payment-terms-text-color: {{ settings.body_text_color }};
+  }
+</style>
