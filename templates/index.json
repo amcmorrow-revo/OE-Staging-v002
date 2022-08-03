@@ -105,10 +105,10 @@
         "columns": 5,
         "gutter": "lg",
         "text_align": "center",
-        "image_size": "circle",
+        "image_size": "square",
         "hover_zoom": true,
         "swipe_on_mobile": true,
-        "show_section_button": false,
+        "show_section_button": true,
         "section_button": "All Collections"
       }
     },
