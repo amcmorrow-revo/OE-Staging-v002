@@ -6,37 +6,41 @@
         "163715623287453a4f-0": {
           "type": "column",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0000_Layer_5.jpg",
             "overlay": 0,
-            "heading": "Image banner",
-            "text": "Give customers details about the banner",
-            "link": ""
+            "heading": "HUNTING",
+            "text": "",
+            "link": "shopify:\/\/collections\/hunting"
           }
         },
         "163715623287453a4f-1": {
           "type": "column",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0003_Layer_1.jpg",
             "overlay": 0,
-            "heading": "Image banner",
-            "text": "Give customers details about the banner",
-            "link": ""
+            "heading": "Fishing",
+            "text": "",
+            "link": "shopify:\/\/collections\/fishing"
           }
         },
         "163715623287453a4f-2": {
           "type": "column",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0001_Layer_3.jpg",
             "overlay": 0,
-            "heading": "Image banner",
-            "text": "Give customers details about the banner",
-            "link": ""
+            "heading": "Utility",
+            "text": "",
+            "link": "shopify:\/\/collections\/utility"
           }
         },
         "10dd69df-f784-408c-9051-b78f49916ec7": {
           "type": "column",
           "settings": {
+            "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0000_Layer_4.jpg",
             "overlay": 0,
-            "heading": "Image banner",
-            "text": "Give customers details about the banner",
-            "link": ""
+            "heading": "Processing",
+            "text": "",
+            "link": "shopify:\/\/collections\/processing"
           }
         }
       },
@@ -58,29 +62,30 @@
         "1637156313539373b5-0": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "hunting"
           }
         },
         "1637156313539373b5-1": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "fishing"
           }
         },
         "1637156313539373b5-2": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "utility"
           }
         },
         "1637156313539373b5-3": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "processing"
           }
         },
         "1637156313539373b5-4": {
           "type": "featured_collection",
+          "disabled": true,
           "settings": {
             "collection": ""
           }
@@ -109,6 +114,7 @@
     },
     "1637156408ba495eb1": {
       "type": "image-with-text",
+      "disabled": true,
       "blocks": {
         "16371564081d2fb4d5-0": {
           "type": "heading",
@@ -153,9 +159,9 @@
     "1637156418dc83c366": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured collection",
+        "title": "New 2022",
         "subtitle": "",
-        "collection": "",
+        "collection": "hunting",
         "color_scheme": "default",
         "columns": 5,
         "rows": 1,
@@ -166,6 +172,7 @@
     },
     "16371564758217e773": {
       "type": "gallery",
+      "disabled": true,
       "blocks": {
         "16371564752f7f3825-0": {
           "type": "gallery_image",
@@ -265,6 +272,7 @@
     },
     "16371564913c8d0ab0": {
       "type": "hero-video",
+      "disabled": true,
       "blocks": {
         "1637156491e58a6547-0": {
           "type": "heading",
@@ -370,6 +378,7 @@
     },
     "1637156525e547728a": {
       "type": "map",
+      "disabled": true,
       "blocks": {
         "1637156525ed8162ab-0": {
           "type": "heading",
