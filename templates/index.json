@@ -56,6 +56,108 @@
         "text_size": "md"
       }
     },
+    "1637156418dc83c366": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "New 2022",
+        "subtitle": "",
+        "collection": "replacement-blades",
+        "color_scheme": "default",
+        "columns": 5,
+        "rows": 1,
+        "gutter": "md",
+        "swipe_on_mobile": true,
+        "section_button": "Shop All"
+      }
+    },
+    "1637156408ba495eb1": {
+      "type": "image-with-text",
+      "blocks": {
+        "16371564081d2fb4d5-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Razorsafe System"
+          }
+        },
+        "16371564081d2fb4d5-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our patented system is the strongest and safest replaceable blade knife available, with lighting fast blade changes at the push of a button.<\/p>"
+          }
+        },
+        "16371564081d2fb4d5-2": {
+          "type": "buttons",
+          "settings": {
+            "button": "Learn",
+            "button_link": "",
+            "button_style": "default",
+            "button_show_arrow": true,
+            "secondary_button": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "default",
+            "secondary_button_show_arrow": true
+          }
+        }
+      },
+      "block_order": [
+        "16371564081d2fb4d5-0",
+        "16371564081d2fb4d5-1",
+        "16371564081d2fb4d5-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0000_Layer_5.jpg",
+        "image_size": "original",
+        "mobile_image_size": "original",
+        "color_scheme": "accent",
+        "layout": "image_first",
+        "text_size": "sm",
+        "text_position": "center-left"
+      }
+    },
+    "16596237967c686b88": {
+      "type": "image-with-text",
+      "blocks": {
+        "165962379529a2ca6b-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Blade Pack HQ"
+          }
+        },
+        "165962379529a2ca6b-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Ready to shop for more blades, more styles, or both? Click below. Interested in a blade pack subscription service? Check back soon.<\/p>"
+          }
+        },
+        "165962379529a2ca6b-2": {
+          "type": "buttons",
+          "settings": {
+            "button": "Shop Now",
+            "button_link": "",
+            "button_style": "ghost",
+            "button_show_arrow": true,
+            "secondary_button": "",
+            "secondary_button_link": "",
+            "secondary_button_style": "default",
+            "secondary_button_show_arrow": true
+          }
+        }
+      },
+      "block_order": [
+        "165962379529a2ca6b-0",
+        "165962379529a2ca6b-1",
+        "165962379529a2ca6b-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0001_Layer_3.jpg",
+        "image_size": "original",
+        "mobile_image_size": "original",
+        "color_scheme": "invert",
+        "layout": "image_first",
+        "text_size": "md",
+        "text_position": "center-left"
+      }
+    },
     "16371563135a329e27": {
       "type": "collection-list",
       "blocks": {
@@ -114,64 +216,6 @@
         "swipe_on_mobile": true,
         "show_section_button": true,
         "section_button": "All Collections"
-      }
-    },
-    "1637156408ba495eb1": {
-      "type": "image-with-text",
-      "disabled": true,
-      "blocks": {
-        "16371564081d2fb4d5-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image with text"
-          }
-        },
-        "16371564081d2fb4d5-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>"
-          }
-        },
-        "16371564081d2fb4d5-2": {
-          "type": "buttons",
-          "settings": {
-            "button": "Find More",
-            "button_link": "",
-            "button_style": "default",
-            "button_show_arrow": true,
-            "secondary_button": "",
-            "secondary_button_link": "",
-            "secondary_button_style": "default",
-            "secondary_button_show_arrow": true
-          }
-        }
-      },
-      "block_order": [
-        "16371564081d2fb4d5-0",
-        "16371564081d2fb4d5-1",
-        "16371564081d2fb4d5-2"
-      ],
-      "settings": {
-        "image_size": "original",
-        "mobile_image_size": "original",
-        "color_scheme": "invert",
-        "layout": "text_first",
-        "text_size": "md",
-        "text_position": "center-center"
-      }
-    },
-    "1637156418dc83c366": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "New 2022",
-        "subtitle": "",
-        "collection": "replacement-blades",
-        "color_scheme": "default",
-        "columns": 5,
-        "rows": 1,
-        "gutter": "md",
-        "swipe_on_mobile": true,
-        "section_button": "Shop All"
       }
     },
     "16371564758217e773": {
@@ -480,9 +524,10 @@
   },
   "order": [
     "1637156232245e9667",
-    "16371563135a329e27",
-    "1637156408ba495eb1",
     "1637156418dc83c366",
+    "1637156408ba495eb1",
+    "16596237967c686b88",
+    "16371563135a329e27",
     "16371564758217e773",
     "16371564913c8d0ab0",
     "16371565156a529cad",
