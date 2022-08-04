@@ -3,7 +3,6 @@
 {%- assign products_limit = section.settings.columns | times: section.settings.rows -%}
 
 {% capture Content %}
-  <h1>TEST</h1>
    <div class="#grid @gap:{{ section.settings.gutter }} {% if section.settings.swipe_on_mobile %}@mobile-overlap{% else %}@mobile:columns:1{% endif %} @container @columns:{{ section.settings.columns }}">
     {%- if section.settings.collection.title == blank -%}
       {%- for i in (1..products_limit) -%}
