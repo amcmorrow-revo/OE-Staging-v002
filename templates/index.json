@@ -106,7 +106,7 @@
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0000_Layer_5.jpg",
-        "image_size": "original",
+        "image_size": "small",
         "mobile_image_size": "original",
         "color_scheme": "accent",
         "layout": "image_first",
@@ -150,7 +150,7 @@
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0001_Layer_3.jpg",
-        "image_size": "original",
+        "image_size": "small",
         "mobile_image_size": "original",
         "color_scheme": "alt",
         "layout": "image_first",
