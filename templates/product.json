@@ -94,6 +94,7 @@
         },
         "f2b47539-567b-42a9-8e71-b0598c33cb3c": {
           "type": "shopify:\/\/apps\/wizio-bundle-quantity-breaks\/blocks\/frequently-block\/8331d8b5-f4ba-4f29-9cd9-62bbb3b17bde",
+          "disabled": true,
           "settings": {
           }
         }
@@ -122,6 +123,21 @@
         "gallery_padding": false,
         "enable_sticky_info": true,
         "content_align": "left"
+      }
+    },
+    "1659620789babc0ebd": {
+      "type": "apps",
+      "blocks": {
+        "cf3e085a-7f31-4ae6-91ed-c0719ec6b7de": {
+          "type": "shopify:\/\/apps\/wizio-bundle-quantity-breaks\/blocks\/frequently-block\/8331d8b5-f4ba-4f29-9cd9-62bbb3b17bde",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "cf3e085a-7f31-4ae6-91ed-c0719ec6b7de"
+      ],
+      "settings": {
       }
     },
     "hero-image": {
@@ -312,6 +328,7 @@
   },
   "order": [
     "main",
+    "1659620789babc0ebd",
     "hero-image",
     "1640074039f425933b",
     "testimonials",
