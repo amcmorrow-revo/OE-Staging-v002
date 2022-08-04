@@ -152,7 +152,7 @@
         "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0001_Layer_3.jpg",
         "image_size": "original",
         "mobile_image_size": "original",
-        "color_scheme": "invert",
+        "color_scheme": "alt",
         "layout": "image_first",
         "text_size": "md",
         "text_position": "center-left"
@@ -207,7 +207,7 @@
       "settings": {
         "title": "Collections",
         "subtitle": "",
-        "color_scheme": "alt",
+        "color_scheme": "default",
         "columns": 5,
         "gutter": "lg",
         "text_align": "center",
@@ -369,6 +369,7 @@
     },
     "16371565156a529cad": {
       "type": "testimonials",
+      "disabled": true,
       "blocks": {
         "16371565151b4a0f95-0": {
           "type": "testimonial",
@@ -513,6 +514,7 @@
         "16371565554fbd4dac-2"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0001_Layer_3.jpg",
         "image_size": "21x9",
         "image_mobile_size": "9x16",
         "overlay": 0,
