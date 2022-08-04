@@ -153,6 +153,23 @@
           "text_size": "md",
           "color_scheme": "invert"
         }
+      },
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/OE_DS_Logo_hi_res_160x_2x_9d94ad1a-2050-4278-8338-f71dc9ca25af.png",
+          "logo_max_width": 100,
+          "text_color": "#1A1B18",
+          "background_color": "#ffffff"
+        }
+      },
+      "main-password-footer": {
+        "type": "main-password-footer",
+        "settings": {
+          "show_social": true,
+          "text_color": "#ffffff",
+          "background_color": "#1A1B18"
+        }
       }
     },
     "content_for_index": [
