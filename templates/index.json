@@ -154,7 +154,7 @@
         "mobile_image_size": "original",
         "color_scheme": "alt",
         "layout": "image_first",
-        "text_size": "md",
+        "text_size": "sm",
         "text_position": "center-left"
       }
     },
