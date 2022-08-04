@@ -145,7 +145,7 @@
         ],
         "settings": {
           "is_enabled": true,
-          "enable_testing_mode": true,
+          "enable_testing_mode": false,
           "display_delay": 3,
           "days_to_re_appear": 1,
           "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0001_Layer_3.jpg",
