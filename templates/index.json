@@ -65,7 +65,7 @@
         "color_scheme": "default",
         "columns": 5,
         "rows": 1,
-        "gutter": "md",
+        "gutter": "sm",
         "swipe_on_mobile": true,
         "section_button": "Shop All"
       }
