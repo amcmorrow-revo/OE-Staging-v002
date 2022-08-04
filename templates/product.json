@@ -91,6 +91,11 @@
             "content": "<p>We have been designing and manufacturing bags and cases in our own backyard from the start. This lets us turn prototypes to production very quickly and ensure products are made just right.<\/p>",
             "page": ""
           }
+        },
+        "f2b47539-567b-42a9-8e71-b0598c33cb3c": {
+          "type": "shopify:\/\/apps\/wizio-bundle-quantity-breaks\/blocks\/frequently-block\/8331d8b5-f4ba-4f29-9cd9-62bbb3b17bde",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -104,7 +109,8 @@
         "description",
         "share",
         "70584dec-4c98-4b2d-8351-207c37f05c60",
-        "a9100a11-5cd4-4377-aefa-21a85be85e2c"
+        "a9100a11-5cd4-4377-aefa-21a85be85e2c",
+        "f2b47539-567b-42a9-8e71-b0598c33cb3c"
       ],
       "settings": {
         "color_scheme": "default",
