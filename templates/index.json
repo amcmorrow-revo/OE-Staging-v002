@@ -62,31 +62,36 @@
         "1637156313539373b5-0": {
           "type": "featured_collection",
           "settings": {
-            "collection": "hunting"
+            "collection": "hunting",
+            "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0000_Layer_5.jpg"
           }
         },
         "1637156313539373b5-1": {
           "type": "featured_collection",
           "settings": {
-            "collection": "fishing"
+            "collection": "fishing",
+            "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0003_Layer_1.jpg"
           }
         },
         "1637156313539373b5-2": {
           "type": "featured_collection",
           "settings": {
-            "collection": "utility"
+            "collection": "utility",
+            "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0001_Layer_3.jpg"
           }
         },
         "1637156313539373b5-3": {
           "type": "featured_collection",
           "settings": {
-            "collection": "processing"
+            "collection": "processing",
+            "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0000_Layer_4.jpg"
           }
         },
         "1637156313539373b5-4": {
           "type": "featured_collection",
           "settings": {
-            "collection": "replacement-blades"
+            "collection": "replacement-blades",
+            "image": "shopify:\/\/shop_images\/Carousel_IMG_0000s_0002_Layer_2.jpg"
           }
         }
       },
