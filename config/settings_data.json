@@ -13,6 +13,7 @@
     "product_card_image_appearance": "center",
     "product_card_text_align": "center",
     "product_card_image_padding": true,
+    "product_card_out_of_stock_fade": true,
     "predictive_search_results_limit": 7,
     "predictive_search_src_page": true,
     "predictive_search_src_blog": true,
