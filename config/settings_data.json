@@ -1,8 +1,25 @@
 {
   "current": {
+    "color_text": "#1A1B18",
+    "color_background": "#ffffff",
+    "color_alt_background": "#F5F5F5",
+    "color_accent": "#d4651f",
+    "color_accent_contrast": "#ffffff",
+    "color_border": "#EAEAEA",
+    "type_base_font_size": 16,
+    "type_header_font": "sans-serif",
+    "type_body_font": "sans-serif",
+    "product_card_aspect_ratio": "1x1",
+    "product_card_image_appearance": "center",
+    "product_card_text_align": "center",
     "predictive_search_src_page": true,
     "predictive_search_src_blog": true,
     "g_section_align": "center",
+    "g_section_heading_size": "md",
+    "g_section_subheading_position": "after",
+    "g_section_button_position": "after",
+    "g_section_button_size": "sm",
+    "g_section_button_style": "ghost",
     "sections": {
       "main-header": {
         "type": "main-header",
@@ -19,7 +36,7 @@
         ],
         "settings": {
           "logo_width": 40,
-          "bg_color": "#1A1B18",
+          "bg_color": "#1a1b18",
           "text_color": "#ffffff",
           "show_icons_text": true,
           "enable_sticky_header": true,
@@ -138,7 +155,15 @@
     },
     "content_for_index": [
 
-    ]
+    ],
+    "blocks": {
+      "10613633940829346878": {
+        "type": "shopify:\/\/apps\/wizio-bundle-quantity-breaks\/blocks\/app-embed\/8331d8b5-f4ba-4f29-9cd9-62bbb3b17bde",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
   },
   "presets": {
     "Empire": {
