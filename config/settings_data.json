@@ -12,6 +12,7 @@
     "product_card_aspect_ratio": "1x1",
     "product_card_image_appearance": "center",
     "product_card_text_align": "center",
+    "product_card_image_padding": true,
     "predictive_search_src_page": true,
     "predictive_search_src_blog": true,
     "g_section_align": "center",
