@@ -36,7 +36,8 @@
           "b0aab0cc-82b8-43b0-8b92-a210d4b05387"
         ],
         "settings": {
-          "logo_width": 40,
+          "logo": "shopify:\/\/shop_images\/OE_DS_Logo_hi_res_160x_2x_b44f2263-6b65-46bd-b1e6-0ef90924fe05.png",
+          "logo_width": 160,
           "bg_color": "#1a1b18",
           "text_color": "#ffffff",
           "show_icons_text": true,
