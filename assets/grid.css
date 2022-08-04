@@ -480,6 +480,8 @@
 .\#grid.\@columns\:5 {
     grid-auto-flow: row;
     grid-template-columns: repeat(5, minmax(0, 1fr));
+    margin-left: 10%;
+    max-width: 80%
 }
 
 .\#grid.\@columns\:6 {
